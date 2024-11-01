@@ -1,0 +1,37 @@
+{
+    "name": "shahariaazam/wp-mail-gateway",
+    "description": "Send mail via multiple email gateway provider from your Wordpress. Supports various mail provider. i.e: Mandrill, MailGun, SMTP, MailJet, Amazon SES, etc..",
+    "version": "1.8",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Shaharia Azam",
+            "email": "shaharia.azam@gmail.com"
+        }
+    ],
+    "config": {
+        "platform": {
+            "php": "5.6"
+        }
+    },
+    "require": {
+        "php": ">=5.6",
+        "ext-curl": "*",
+        "omnimail/omnimail": "^0.3.4",
+        "daniel-zahariev/php-aws-ses": "^0.9",
+        "mailgun/mailgun-php": "^2.4",
+        "mailin-api/mailin-api-php": "^1.0",
+        "mailjet/mailjet-apiv3-php": "^1.2",
+        "mandrill/mandrill": "^1.0",
+        "php-http/guzzle6-adapter": "^1.1",
+        "sendgrid/sendgrid": "^6.0",
+        "wildbit/postmark-php": "^2.5",
+        "phpmailer/phpmailer": "^6.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "ShahariaAzam\\WPMailGateway\\": "src"
+        }
+    }
+}

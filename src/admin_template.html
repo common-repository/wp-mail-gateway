@@ -1,0 +1,462 @@
+<div class="row">
+    <div class="col-9">
+        <section class="jumbotron text-center">
+            <div class="container">
+                <h1 class="jumbotron-heading">WP Mail Gateway</h1>
+                <p class="lead text-muted">Send email from your Wordpress site using various email gateway provider.
+                    i.e: SMTP, Mandrill, MailGun, MailJet, AmazonSES, Gmail, etc. Switch your mail gateway anytime with
+                    simplified approach.</p>
+                <p>
+                    <a href="https://wordpress.org/support/plugin/wp-mail-gateway/" class="btn btn-primary my-2" target="_blank">Contact Support</a>
+                    <a href="https://wordpress.org/support/plugin/wp-mail-gateway/reviews/#new-post" class="btn btn-secondary my-2" target="_blank">Rate this plugin!</a>
+                </p>
+                <p>
+                    Or directly write me at <a href="mailto:mail@shaharia.com">mail@shaharia.com</a>
+                </p>
+            </div>
+        </section>
+    </div>
+    <div class="col-3">
+        <section>
+            <div class="container">
+                <p class="lead text-muted">
+                    <span style="text-decoration: underline; font-weight: bold">Premium Wordpress Service</span><br>
+                    Looking for any Wordpress development service? <a href="https://www.shaharia.com/contact?utm_source=wp-mail-gateway-wp-plugin-banner">Get in touch</a>.
+                </p>
+                <p class="lead text-muted">
+                    <span style="text-decoration: underline; font-weight: bold">Need Donations</span><br>
+                    <span style="color: #FF5722;font-weight: bold;">BIG SURPRISE IS COMING SOON!</span> Donate me to buy me a coffee. It inspires me to spend more time to build new tools and upgrade the existing ones. <br> <br>
+                    <a href="https://paypal.me/previewtechsllc?locale.x=en_US" target="_blank" class="btn btn-warning">Buy Me Coffee via PayPal</a>
+                </p>
+            </div>
+        </section>
+    </div>
+</div>
+
+<!-- Save email gateway provider configuration -->
+<div class="row">
+    <div class="col-12">
+        <div class="card" id="wmg_provider_configuration">
+            <div class="card-body">
+                <h5 class="card-title">Configure Email Providers</h5>
+                <p class="card-text">Select your preferred email provider and configure that with your credentials. You
+                    can configure multiple mail provider but you can make one active at a time.</p>
+                <div class="row">
+                    <div class="col-6">
+                        <form id="wmg_provider_config_form">
+                            <div class="form-group">
+                                <label for="emailGatewayProvider">Select Email Gateway Provider</label>
+                                <select class="form-control" id="emailGatewayProvider" name="gateway_provider">
+                                    <option value="" selected="selected">Select Email Gateway</option>
+                                    <option value="amazon_ses">Amazon SES</option>
+                                    <option value="mailgun">MailGun</option>
+                                    <option value="mailjet">Mailjet</option>
+                                    <option value="mandrill">Mandrill</option>
+                                    <option value="postmark">Postmark</option>
+                                    <option value="sendgrid">Sendgrid</option>
+                                    <option value="sendinblue">SendinBlue</option>
+                                    <option value="smtp">SMTP</option>
+                                </select>
+                            </div>
+                            <div id="config_fields_amazon_ses">
+                                <div class="form-group">
+                                    <label for="amazon_ses_from_name">From Name</label>
+                                    <input type="text" class="form-control" id="amazon_ses_from_name"
+                                           placeholder="Jon Doe" name="amazon_ses_from_name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="amazon_ses_from_email">From Email</label>
+                                    <input type="text" class="form-control" id="amazon_ses_from_email"
+                                           placeholder="test@example.com" name="amazon_ses_from_email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="amazon_ses_access_key">Access Key</label>
+                                    <input type="text" class="form-control" id="amazon_ses_access_key"
+                                           placeholder="xxxxxxxxxxxxxxxxxxx" name="amazon_ses_access_key">
+                                </div>
+                                <div class="form-group">
+                                    <label for="amazon_ses_secret_key">Secret Key</label>
+                                    <input type="text" class="form-control" id="amazon_ses_secret_key"
+                                           placeholder="xxxxxxxxxxxxxxxxxxx" name="amazon_ses_secret_key">
+                                </div>
+                                <div class="form-group">
+                                    <label for="amazon_ses_region">AWS Service Region</label>
+                                    <select class="form-control" id="amazon_ses_region" name="amazon_ses_region">
+                                        <option value="" selected="selected">Select Region</option>
+                                        <option value="email.us-east-1.amazonaws.com">US East (N. Virginia) / us-east-1</option>
+                                        <option value="email.us-east-2.amazonaws.com">US East (Ohio) / us-east-2</option>
+                                        <option value="email.us-west-1.amazonaws.com">US West (N. California) / us-west-1</option>
+                                        <option value="email.us-west-2.amazonaws.com">US West (Oregon) / us-west-2</option>
+                                        <option value="email.af-south-1.amazonaws.com">Africa (Cape Town) / af-south-1</option>
+                                        <option value="email.ap-east-1.amazonaws.com">Asia Pacific (Hong Kong) / ap-east-1</option>
+                                        <option value="email.ap-south-1.amazonaws.com">Asia Pacific (Mumbai) / ap-south-1</option>
+                                        <option value="email.ap-northeast-3.amazonaws.com">Asia Pacific (Osaka-Local) / ap-northeast-3</option>
+                                        <option value="email.ap-northeast-2.amazonaws.com">Asia Pacific (Seoul) / ap-northeast-2</option>
+                                        <option value="email.ap-southeast-1.amazonaws.com">Asia Pacific (Singapore) / ap-southeast-1</option>
+                                        <option value="email.ap-southeast-2.amazonaws.com">Asia Pacific (Sydney) / ap-southeast-2</option>
+                                        <option value="email.ap-northeast-1.amazonaws.com">Asia Pacific (Tokyo) / ap-northeast-1</option>
+                                        <option value="email.ca-central-1.amazonaws.com">Canada (Central) / ca-central-1</option>
+                                        <option value="email.cn-north-1.amazonaws.com">China (Beijing)  / cn-north-1</option>
+                                        <option value="email.cn-northwest-1.amazonaws.com">China (Ningxia) / cn-northwest-1</option>
+                                        <option value="email.eu-central-1.amazonaws.com">Europe (Frankfurt) / eu-central-1</option>
+                                        <option value="email.eu-west-1.amazonaws.com">Europe (Ireland) / eu-west-1</option>
+                                        <option value="email.eu-west-2.amazonaws.com">Europe (London) / eu-west-2</option>
+                                        <option value="email.eu-south-1.amazonaws.com">Europe (Milan) / eu-south-1</option>
+                                        <option value="email.eu-west-3.amazonaws.com">Europe (Paris) / eu-west-3</option>
+                                        <option value="email.eu-north-1.amazonaws.com">Europe (Stockholm) / eu-north-1</option>
+                                        <option value="email.me-south-1.amazonaws.com">Middle East (Bahrain) / me-south-1</option>
+                                        <option value="email.sa-east-1.amazonaws.com">South America (São Paulo) / sa-east-1</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="amazon_ses_verify_peer">Verify Peer</label>
+                                    <select class="form-control" id="amazon_ses_verify_peer"
+                                            name="amazon_ses_verify_peer">
+                                        <option value="yes" selected="selected">Yes</option>
+                                        <option value="no">No</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="amazon_ses_verify_host">Verify Host</label>
+                                    <select class="form-control" id="amazon_ses_verify_host"
+                                            name="amazon_ses_verify_host">
+                                        <option value="yes" selected="selected">Yes</option>
+                                        <option value="no">No</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="amazon_ses_active"
+                                               name="amazon_ses_active">
+                                        <label class="custom-control-label" for="amazon_ses_active">Active</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="config_fields_mailgun">
+                                <div class="form-group">
+                                    <label for="mailgun_from_name">From Name</label>
+                                    <input type="text" class="form-control" id="mailgun_from_name" placeholder="Jon Doe"
+                                           name="mailgun_from_name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="mailgun_from_email">From Email</label>
+                                    <input type="text" class="form-control" id="mailgun_from_email"
+                                           placeholder="test@example.com" name="mailgun_from_email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="mailgun_api_key">API Key</label>
+                                    <input type="text" class="form-control" id="mailgun_api_key"
+                                           placeholder="xxxxxxxxxxxxxxxxxxx" name="mailgun_api_key">
+                                </div>
+                                <div class="form-group">
+                                    <label for="mailgun_domain">Domain</label>
+                                    <input type="text" class="form-control" id="mailgun_domain"
+                                           placeholder="example.com" name="mailgun_domain">
+                                </div>
+                                <div class="form-group">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="mailgun_active"
+                                               name="mailgun_active">
+                                        <label class="custom-control-label" for="mailgun_active">Active</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="config_fields_mailjet">
+                                <div class="form-group">
+                                    <label for="mailjet_from_name">From Name</label>
+                                    <input type="text" class="form-control" id="mailjet_from_name" placeholder="Jon Doe"
+                                           name="mailjet_from_name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="mailjet_from_email">From Email</label>
+                                    <input type="text" class="form-control" id="mailjet_from_email"
+                                           placeholder="test@example.com" name="mailjet_from_email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="mailjet_api_key">API Key</label>
+                                    <input type="text" class="form-control" id="mailjet_api_key"
+                                           placeholder="xxxxxxxxxxxxxxxxxxx" name="mailjet_api_key">
+                                </div>
+                                <div class="form-group">
+                                    <label for="mailjet_api_secret">API Secret</label>
+                                    <input type="text" class="form-control" id="mailjet_api_secret"
+                                           placeholder="xxxxxxxxxxxxxxxxxxx" name="mailjet_api_secret">
+                                </div>
+                                <div class="form-group">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="mailjet_active"
+                                               name="mailjet_active">
+                                        <label class="custom-control-label" for="mailjet_active">Active</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="config_fields_mandrill">
+                                <div class="form-group">
+                                    <label for="mandrill_from_name">From Name</label>
+                                    <input type="text" class="form-control" id="mandrill_from_name"
+                                           placeholder="Jon Doe" name="mandrill_from_name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="mandrill_from_email">From Email</label>
+                                    <input type="text" class="form-control" id="mandrill_from_email"
+                                           placeholder="test@example.com" name="mandrill_from_email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="mandrill_api_key">API Key</label>
+                                    <input type="text" class="form-control" id="mandrill_api_key"
+                                           placeholder="xxxxxxxxxxxxxxxxxxx" name="mandrill_api_key">
+                                </div>
+                                <div class="form-group">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="mandrill_active"
+                                               name="mandrill_active">
+                                        <label class="custom-control-label" for="mandrill_active">Active</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="config_fields_postmark">
+                                <div class="form-group">
+                                    <label for="postmark_from_name">From Name</label>
+                                    <input type="text" class="form-control" id="postmark_from_name"
+                                           placeholder="Jon Doe" name="postmark_from_name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="postmark_from_email">From Email</label>
+                                    <input type="text" class="form-control" id="postmark_from_email"
+                                           placeholder="test@example.com" name="postmark_from_email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="postmark_api_token">API Token</label>
+                                    <input type="text" class="form-control" id="postmark_api_token"
+                                           placeholder="xxxxxxxxxxxxxxxxxxx" name="postmark_api_token">
+                                </div>
+                                <div class="form-group">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="postmark_active"
+                                               name="postmark_active">
+                                        <label class="custom-control-label" for="postmark_active">Active</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="config_fields_sendgrid">
+                                <div class="form-group">
+                                    <label for="sendgrid_from_name">From Name</label>
+                                    <input type="text" class="form-control" id="sendgrid_from_name"
+                                           placeholder="Jon Doe" name="sendgrid_from_name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="sendgrid_from_email">From Email</label>
+                                    <input type="text" class="form-control" id="sendgrid_from_email"
+                                           placeholder="test@example.com" name="sendgrid_from_email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="sendgrid_api_key">API Key</label>
+                                    <input type="text" class="form-control" id="sendgrid_api_key"
+                                           placeholder="xxxxxxxxxxxxxxxxxxx" name="sendgrid_api_key">
+                                </div>
+                                <div class="form-group">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="sendgrid_active"
+                                               name="sendgrid_active">
+                                        <label class="custom-control-label" for="sendgrid_active">Active</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="config_fields_sendinblue">
+                                <div class="form-group">
+                                    <label for="sendinblue_from_name">From Name</label>
+                                    <input type="text" class="form-control" id="sendinblue_from_name"
+                                           placeholder="Jon Doe" name="sendinblue_from_name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="sendinblue_from_email">From Email</label>
+                                    <input type="text" class="form-control" id="sendinblue_from_email"
+                                           placeholder="test@example.com" name="sendinblue_from_email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="sendinblue_access_key">Access Key</label>
+                                    <input type="text" class="form-control" id="sendinblue_access_key"
+                                           placeholder="xxxxxxxxxxxxxxxxxxx" name="sendinblue_access_key">
+                                </div>
+                                <div class="form-group">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="sendinblue_active"
+                                               name="sendinblue_active">
+                                        <label class="custom-control-label" for="sendinblue_active">Active</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="config_fields_smtp">
+                                <div class="form-group">
+                                    <label for="smtp_from_name">From Name</label>
+                                    <input type="text" class="form-control" id="smtp_from_name"
+                                           placeholder="Jon Doe" name="smtp_from_name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="smtp_from_email">From Email</label>
+                                    <input type="text" class="form-control" id="smtp_from_email"
+                                           placeholder="test@example.com" name="smtp_from_email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="smtp_host">SMTP Host</label>
+                                    <input type="text" class="form-control" id="smtp_host"
+                                           placeholder="smtp.gmail.com" name="smtp_host">
+                                </div>
+                                <div class="form-group">
+                                    <label for="smtp_username">SMTP Username</label>
+                                    <input type="text" class="form-control" id="smtp_username"
+                                           placeholder="test@example.com" name="smtp_username">
+                                </div>
+                                <div class="form-group">
+                                    <label for="smtp_password">SMTP Password</label>
+                                    <input type="text" class="form-control" id="smtp_password"
+                                           placeholder="xxxxxxxxx" name="smtp_password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="smtp_port">SMTP Port</label>
+                                    <input type="text" class="form-control" id="smtp_port"
+                                           placeholder="587" name="smtp_port" value="587">
+                                </div>
+                                <div class="form-group">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="smtp_active"
+                                               name="smtp_active">
+                                        <label class="custom-control-label" for="smtp_active">Active</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary"><img class="wmg-ajax-loader-save-config" src="{{loader_gif}}" style="display: none; width: 20px;"> Update Configuration</button>
+                        </form>
+                    </div>
+                    <div class="col-6">
+                        <!--<h4>Instructions!</h4>-->
+                        <div id="instructions_for_amazon_ses">
+                            <img src="{{aws_ses_logo}}" class="img-thumbnail"> <br> <br>
+                            <h4>How to get API Key?</h4>
+                            Inside the Mailgun Control Panel (options displayed down the left-hand side on a dark
+                            column), the API keys appear on only one page. To view the API keys, use the following
+                            instructions:
+                            <ul>
+                                <li>1. Log in to your <a href="https://aws.amazon.com" target="_blank">AWS Management
+                                    Console</a> .
+                                </li>
+                                <li>2. Click on your user name at the top right of the page.</li>
+                                <li>3. Click on the Security Credentials link from the drop-down menu.</li>
+                                <li>4. Find the Access Credentials section, and copy the latest Access Key ID.</li>
+                                <li>5. Click on the Show link in the same row, and copy the Secret Access Key.</li>
+                            </ul>
+                        </div>
+                        <div id="instructions_for_mailgun">
+                            <img src="{{mailgun_logo}}" class="img-thumbnail"> <br> <br>
+                            <h4>How to get API Key?</h4>
+                            Inside the Mailgun Control Panel (options displayed down the left-hand side on a dark
+                            column), the API keys appear on only one page. To view the API keys, use the following
+                            instructions:
+                            <ul>
+                                <li>1. Click on Settings on the left-hand side of your the Mailgun dashboard.</li>
+                                <li>2. Select Security & Users from the menu below on the left-hand side.</li>
+                                <li>3. Click on the API security tab.</li>
+                                <li>4. On the following page, under the API Keys section, you'll see both your Private
+                                    and Public API keys.
+                                </li>
+                                <li>5. Click on the eye icon to make the full API key visible.</li>
+                            </ul>
+                        </div>
+                        <div id="instructions_for_mailjet">
+                            <img src="{{mailjet_logo}}" class="img-thumbnail"> <br> <br>
+                            <h4>How to get API Key?</h4>
+                            It's very easy to obtain the API keys from MailJet. <br>
+                            <p>
+                                To get the API keys please go to <a href="https://app.mailjet.com/account/api_keys" target="_blank">API key management</a> page.
+                            </p>
+                        </div>
+                        <div id="instructions_for_mandrill">
+                            <img src="{{mandrill_logo}}" class="img-thumbnail"> <br> <br>
+                            <h4>How to get API Key?</h4>
+                            Mandrill also provides very easy easy way to integrate. Please follow the instructions below to get the API keys from Mandrill.
+                            <ul>
+                                <li>1. Login to Mandrill account from <a href="https://mandrillapp.com" target="_blank">https://mandrillapp.com</a> </li>
+                                <li>2. After login to to "Settings" -> "SMTP & API info" from left sidebar. Or you can directly go to <a href="https://mandrillapp.com/settings/index" target="_blank">https://mandrillapp.com/settings/index</a> </li>
+                                <li>3. Now generate new API keys or get the existing API key information</li>
+                                <li>*** Please also take notes about your sending domain. It's required</li>
+                            </ul>
+                        </div>
+                        <div id="instructions_for_postmark">
+                            <img src="{{postmark_logo}}" class="img-thumbnail"> <br> <br>
+                            <h4>How to get API Token?</h4>
+                            To get the API tokens for Postmark, please go to <a href="https://account.postmarkapp.com/api_tokens" target="_blank">https://account.postmarkapp.com/api_tokens</a>
+                        </div>
+                        <div id="instructions_for_sendgrid">
+                            <img src="{{sendgrid_logo}}" class="img-thumbnail" width="240px"> <br> <br>
+                            <h4>How to get API Key?</h4>
+                            TO get API key from SendGrid, please go to <a href="https://app.sendgrid.com/settings/api_keys" target="_blank">https://app.sendgrid.com/settings/api_keys</a>
+                        </div>
+                        <div id="instructions_for_sendinblue">
+                            <img src="{{sendinblue_logo}}" class="img-thumbnail" width="240px"> <br> <br>
+                            <h4>How to get API credentials?</h4>
+                            Please go to <a href="https://account.sendinblue.com/advanced/api" target="_blank">https://account.sendinblue.com/advanced/api</a> and get your API
+                            credentials for SendinBlue. <br>
+                            You can see more details from <a href="https://help.sendinblue.com/hc/en-us/articles/209467485-What-s-an-API-key-and-how-can-I-get-mine-">here</a>.
+                        </div>
+                        <div id="instructions_for_smtp">
+                            <h4>Send mail with SMTP</h4>
+                            Send email from your Wordpress website using SMTP. You can configure any kinds of email gateway provider if they
+                            support SMTP. To configure the SMTP, you need to know the following configuration
+                            <ul style="margin-top: 10px;">
+                                <li>
+                                    <strong>1. SMTP Hostname</strong> <br>
+                                    For example: smtp.gmail.com
+                                </li>
+                                <li>
+                                    <strong>2. SMTP Username</strong> <br>
+                                    For example: yourname@gmail.com
+                                </li>
+                                <li>
+                                    <strong>3. SMTP Password</strong> <br>
+                                    Your SMTP password. <br>
+                                    <i>Note: For Google, if you have 2FA enabled, you may need to generate <a href="https://myaccount.google.com/apppasswords" target="_blank">App Specific Password</a> </i>
+                                </li>
+                                <li>
+                                    <strong>4. SMTP Port</strong> <br>
+                                    Most of the cases it's 587. But it may be different for your host
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Test mail configuration-->
+<div class="row">
+    <div class="col-12">
+        <div class="card" id="wmg_test_provider_configuration">
+            <div class="card-body">
+                <h5 class="card-title">Test your configuration</h5>
+                <p class="card-text">Send a test email to check if all the configurations for your preferred email
+                    gateway provider are correct.</p>
+                <form id="wmg_test_configuration">
+                    <div class="form-group">
+                        <label for="test_configuration_to">To</label>
+                        <input name="test_configuration_to" type="email" class="form-control" id="test_configuration_to"
+                               aria-describedby="emailHelp" placeholder="Recipient's email address">
+                    </div>
+                    <div class="form-group">
+                        <label for="test_configuration_subject">Subject</label>
+                        <input name="test_configuration_subject" type="text" class="form-control"
+                               id="test_configuration_subject" aria-describedby="emailHelp"
+                               placeholder="Write a subject" value="Testing WP Mail Gateway configuration">
+                    </div>
+                    <div class="form-group">
+                        <label for="test_configuration_content">Contents</label>
+                        <textarea class="form-control" id="test_configuration_content" rows="3"
+                                  name="test_configuration_content"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary"><img class="wmg-ajax-loader-test-config" src="{{loader_gif}}" style="display: none; width: 20px;"> Send Test Email</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
